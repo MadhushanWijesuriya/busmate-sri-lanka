@@ -177,6 +177,9 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
+        //new packages
+        GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
+
     ],
 
     /*
@@ -228,6 +231,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        //new package
+        'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
 
     ],
 
