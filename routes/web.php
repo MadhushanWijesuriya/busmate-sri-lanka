@@ -22,4 +22,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/a',[GoogleMapController::class, 'index'])->name('map');
+Route::get('/map',[GoogleMapController::class, 'index'])->name('map');
