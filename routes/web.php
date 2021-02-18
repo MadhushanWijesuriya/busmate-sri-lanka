@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BusController;
 use App\Http\Controllers\DriverDashBoardController;
 use App\Http\Controllers\GoogleMapController;
 use Illuminate\Support\Facades\Route;
@@ -18,12 +19,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::middleware(['auth:sanctum', 'verified'])->group( function () {
+    Route::prefix('dashboard')->group(function () {
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+        Route::get('/',[DriverDashBoardController::class, 'index'])->name('dashboard');
+        Route::get('/route-direction',[DriverDashBoardController::class, 'getRouteDirection'])->name('dashboard.bus-routes');
 
-Route::get('/dashboard1',[DriverDashBoardController::class, 'index'])->name('dashboard');
-Route::get('/dashboard1/route-direction',[DriverDashBoardController::class, 'getRouteDirection'])->name('route.direction');
-Route::get('/map',[GoogleMapController::class, 'index'])->name('map');
+    });
+    Route::prefix('bus')->group(function () {
+
+        Route::get('/',[BusController::class, 'index'])->name('bus');
+        Route::get('/create',[BusController::class, 'create'])->name('bus.create');
+        Route::post('/store',[BusController::class, 'store'])->name('bus.store');
+
+
+    });
+});
 

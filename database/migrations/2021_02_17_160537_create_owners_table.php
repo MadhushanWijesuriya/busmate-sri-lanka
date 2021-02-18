@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBusHoltsTable extends Migration
+class CreateOwnersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateBusHoltsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bus_holts', function (Blueprint $table) {
+        Schema::create('owners', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('holt_name');
-            $table->string('location_cord');
+            $table->string('name');
+            $table->string('address');
+            $table->string('contact_no');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateBusHoltsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bus_holts');
+        Schema::dropIfExists('owners');
     }
 }
