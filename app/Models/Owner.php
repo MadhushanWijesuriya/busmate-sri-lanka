@@ -25,4 +25,9 @@ class Owner extends Model
      * @var string[]
      */
     protected $fillable = ['name','address','contact_no'];
+
+    public function buses()
+    {
+        return $this->hasMany(Bus::class);
+    }
 }

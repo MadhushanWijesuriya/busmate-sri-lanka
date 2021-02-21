@@ -112,9 +112,9 @@
             </div>
         </li>
         <li class="nav-item">
-            <form method="POST" action="http://busmate.local:8081/logout">
+            <form method="POST" action="{{route('logout')}}">
                 <input type="hidden" name="_token" value="wfuL0lK3Ds6lkUwtcduPf5wvF6f8l99vyGe70adY">
-                <a class="nav-link" data-widget="control-sidebar" data-slide="true" role="button" href="http://busmate.local:8081" onclick="event.preventDefault();
+                <a class="nav-link" data-widget="control-sidebar" data-slide="true" role="button" href="{{route('logout')}}" onclick="event.preventDefault();
                                                             this.closest('form').submit();">Logout</a>
 
             </form>

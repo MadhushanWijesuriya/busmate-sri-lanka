@@ -20,8 +20,9 @@ class CreateBusesTable extends Migration
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')->references('id')->on('owners');
 
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('route_categories');
+            $table->unsignedBigInteger('route_category_id');
+            $table->foreign('route_category_id')->references('id')->on('route_categories');
+
             $table->timestamps();
         });
     }

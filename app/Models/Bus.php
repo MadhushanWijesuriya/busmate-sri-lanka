@@ -25,6 +25,22 @@ class Bus extends Model
     /**
      * @var string[]
      */
-    protected $fillable = ['bus_reg_no','owner_id','category_id'];
+    protected $fillable = ['bus_reg_no','owner_id','route_category_id'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function owner()
+    {
+        return $this->belongsTo(Owner::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function routeCategory()
+    {
+        return $this->belongsTo(RouteCategory::class);
+    }
 
 }

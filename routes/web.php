@@ -29,8 +29,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group( function () {
     Route::prefix('bus')->group(function () {
 
         Route::get('/',[BusController::class, 'index'])->name('bus');
+        Route::get('/get-datatable',[BusController::class, 'getBusData'])->name('bus.datatable');
         Route::get('/create',[BusController::class, 'create'])->name('bus.create');
         Route::post('/store',[BusController::class, 'store'])->name('bus.store');
+        Route::get('/edit/{id}',[BusController::class, 'edit'])->name('bus.edit');
+        Route::put('/update/{id}',[BusController::class, 'update'])->name('bus.update');
+
 
 
     });
